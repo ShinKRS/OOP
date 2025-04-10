@@ -1,22 +1,30 @@
 public class Operations {
-    public int a,b,r;
-    //METODOS PARA OPERACIONES MATEMATICAS
-    public int sumar(int a, int b) {
-        r = a + b;
+    private int r;
+
+    // Getter del resultado
+    public int getResultado() {
         return r;
     }
 
-    public int restar(int a, int b) {
-        r = a - b;
-        return r;  
+    // Setters personalizados para operaciones
+    public void setSuma(int a, int b) {
+        r = a + b;
     }
 
-    public int multiplicar(int a, int b) {
-        r = a * b;
-        return r;   
+    public void setResta(int a, int b) {
+        r = a - b;
     }
-    public int potencia (int base, int exponente){
-        
-        return exponente == 0 ? 1: base*potencia(base,exponente-1); 
-}
+
+    public void setMultiplicacion(int a, int b) {
+        r = a * b;
+    }
+
+    public void setPotencia(int base, int exponente) {
+        r = calcularPotencia(base, exponente);
+    }
+
+    // Método auxiliar para la potencia
+    private int calcularPotencia(int base, int exponente) {
+        return exponente == 0 ? 1 : base * calcularPotencia(base, exponente - 1);
+    }
 }
