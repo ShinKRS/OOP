@@ -12,20 +12,33 @@ public class Main {
         int numero1 = Integer.parseInt(num1);
         int numero2 = Integer.parseInt(num2);
         
-        String opcion = JOptionPane.showInputDialog("Digite qué operacion desea realizar: \n1.Ssuma\n2.Resta\n3.Multiplicacion\n4.Potencia");
+        String opcion = JOptionPane.showInputDialog("Digite qué operacion desea realizar: \n1.Suma\n2.Resta\n3.Multiplicacion\n4.Potencia");
         
         int Opcion = Integer.parseInt(opcion);
         
          switch (Opcion) {
              
             
-            case 1 -> JOptionPane.showMessageDialog(null, resultado.getResultado(numero1, numero2));
+            case 1 ->{ 
+            resultado.setSuma(numero1,numero2);
+            JOptionPane.showMessageDialog(null, resultado.getResultado(numero1, numero2));
+            }
             
-            break;
+        
+             case 2 ->{
+             resultado.setResta(numero1,numero2);
+             JOptionPane.showMessageDialog(null, resultado.getResultado(numero1, numero2));
+            }
+             
+            case 3 -> {
+                resultado.setMultiplicacion(numero1,numero2);
+                JOptionPane.showMessageDialog(null, resultado.getResultado(numero1, numero2));
+            }
             
-             case 2 -> JOptionPane.showMessageDialog(null, resultado.getResultado(numero1, numero2));
-            case 3 -> JOptionPane.showMessageDialog(null, resultado.getResultado(numero1, numero2));
-            case 4 -> JOptionPane.showMessageDialog(null, resultado.getResultado(numero1, numero2));
+            case 4 -> {
+            resultado.setPotencia(numero1,numero2);
+            JOptionPane.showMessageDialog(null, resultado.getResultado(numero1, numero2));
+            }
             default -> JOptionPane.showMessageDialog(null, "Opción inválida."); 
        }
     }
