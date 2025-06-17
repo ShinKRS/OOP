@@ -1,0 +1,47 @@
+#define LED_1_PIN 10
+#define LED_2_PIN 12 
+#define LED_3_PIN 13
+
+
+
+class led {
+  private:
+    byte pin;
+
+public :
+ led(byte pin) {
+  this->pin = pin;
+  pinMode(pin, OUTPUT);
+ }
+
+
+ void encendido () {
+  digitalWrite(pin, HIGH);
+ }
+
+ void apagado (){
+  digitalWrite(pin, LOW);
+  }
+};
+
+
+led led1 (LED_1_PIN);
+led led2 (LED_2_PIN);
+led led3 (LED_3_PIN);
+void setup() {
+  // put your setup code here, to run once:
+
+}
+
+void loop() {
+  // Iniciamos el loop de encendido y apagado de los leds
+  led1.encendido();
+  led2.encendido();
+  led3.encendido();
+  delay(100);
+
+  led1.apagado();
+  led2.apagado();
+  led3.apagado();
+  delay(100);
+}
