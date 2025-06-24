@@ -1,19 +1,40 @@
-#ifndef ARCOIRIS_H
-#define ARCOIRIS_H
+#include "Arcoiris.h"
+#include <Arduino.h>
 
-#include "Led.h"
+Arcoiris::Arcoiris(Led* a, Led* r, Led* v, int tiempo) {
+  this->amarillo = a;
+  this->rojo = r;
+  this->verde = v;
+  this->tiempo = tiempo;
+}
 
-class Arcoiris {
-  private:
-    Led* amarillo;
-    Led* rojo;
-    Led* verde;
-    int tiempo;
+void Arcoiris::mostrarSecuencia() {
+  // Solo uno encendido a la vez
+  amarillo->encender(); rojo->apagar(); verde->apagar();
+  delay(tiempo);
 
-  public:
-    Arcoiris(Led* a, Led* r, Led* v, int tiempo = 300);
-    void mostrarSecuencia();
-};
+  amarillo->apagar(); rojo->encender(); verde->apagar();
+  delay(tiempo);
 
-#endif
+  amarillo->apagar(); rojo->apagar(); verde->encender();
+  delay(tiempo);
+
+  // Combinaciones
+  amarillo->encender(); rojo->encender(); verde->apagar();
+  delay(tiempo);
+
+  amarillo->apagar(); rojo->encender(); verde->encender();
+  delay(tiempo);
+
+  amarillo->encender(); rojo->apagar(); verde->encender();
+  delay(tiempo);
+
+  // Todos encendidos
+  amarillo->encender(); rojo->encender(); verde->encender();
+  delay(tiempo);
+
+  // Todos apagados
+  amarillo->apagar(); rojo->apagar(); verde->apagar();
+  delay(tiempo);
+}
 
