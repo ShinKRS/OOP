@@ -1,16 +1,19 @@
 #include "Led.h"
 #include "Arcoiris.h"
 
+// Crear objetos Led con los pines que tienes
 Led ledAmarillo(2);
 Led ledRojo(3);
 Led ledVerde(4);
+Led ledAzul(5);
 
-Arcoiris arcoiris(&ledAmarillo, &ledRojo, &ledVerde, 300);
+// Crear el objeto Arcoiris
+Arcoiris efecto(&ledAmarillo, &ledRojo, &ledVerde, &ledAzul, 300);
 
 void setup() {
-  // Inicialización automática desde los constructores
+  // Todo se configura en los constructores
 }
 
 void loop() {
-  arcoiris.mostrarSecuencia();
+  efecto.mostrarSecuencia();
 }
