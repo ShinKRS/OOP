@@ -5,14 +5,15 @@
 
 class Arcoiris {
   private:
+    Led* amarillo;
     Led* rojo;
     Led* verde;
     Led* azul;
-    int delayTiempo;
+    int tiempo;
 
   public:
-    Arcoiris(Led* rojo, Led* verde, Led* azul, int delayTiempo = 300);
-    void mostrar();
+    Arcoiris(Led* a, Led* r, Led* v, Led* z, int tiempo = 300);
+    void mostrarSecuencia();
 };
 
 #endif
